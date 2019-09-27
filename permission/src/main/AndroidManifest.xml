@@ -1,2 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xiaosw.permission" />
+    package="com.xiaosw.permission">
+
+    <application>
+        <provider
+            android:authorities="com.xiaosw.permission.internal.provider.PermissionInitProvider"
+            android:name=".internal.provider.PermissionInitProvider"/>
+    </application>
+
+</manifest>
