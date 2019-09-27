@@ -33,6 +33,7 @@ object AppCompatPermission : Application.ActivityLifecycleCallbacks {
         get() = mCurrentActivityRef?.get()
 
     fun init(context: Context) {
+        Logger.w("init: context = $context")
         if (isInitializer.get()) {
             Logger.w("init: App compat permission is initializer!")
             return
@@ -53,21 +54,27 @@ object AppCompatPermission : Application.ActivityLifecycleCallbacks {
         vararg permissions: String
     ) = delegate.checkAndRequestPermission(requestCode, listener, permissions)
 
+    private fun updateTopActivityIfNeeded(activity: Activity?) {
+        if (mCurrentActivityRef?.get() != activity) {
+            mCurrentActivityRef = WeakReference(activity)
+        }
+    }
+
     @JvmStatic
     fun shouldShowRequestPermissionRationale(permission: String) =
         delegate.shouldShowRequestPermissionRationale(permission)
 
     override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
+        updateTopActivityIfNeeded(activity)
+        Logger.v("onActivityCreated: activity = $topActivity")
     }
 
     override fun onActivityStarted(activity: Activity?) {
     }
 
     override fun onActivityResumed(activity: Activity?) {
-        if (mCurrentActivityRef?.get() != activity) {
-            mCurrentActivityRef = WeakReference(activity)
-            Logger.v("onActivityResumed: activity = $topActivity")
-        }
+        updateTopActivityIfNeeded(activity)
+        Logger.v("onActivityResumed: activity = $topActivity")
     }
 
     override fun onActivityPaused(activity: Activity?) {
