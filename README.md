@@ -43,3 +43,12 @@ AppCompatPermission.checkAndRequestPermission(reqeustCode, new OnPermissionListe
             }
         }, permissions);
 ```
+
+## FAQ
+如果设备多个项目引用 [AppCompatPermission](https://github.com/xiaosw/AppCompatPermission) 导致安装失败，可使用以下配置解决：
+```xml
+<provider
+    android:authorities="package.internal.provider.PermissionInitProvider"
+    android:name="com.xiaosw.permission.internal.provider.PermissionInitProvider"
+    tools:replace="android:authorities"/>
+```
