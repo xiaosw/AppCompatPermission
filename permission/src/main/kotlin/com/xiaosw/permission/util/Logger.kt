@@ -1,6 +1,7 @@
 package com.xiaosw.permission.util
 
 import android.util.Log
+import com.xiaosw.permission.BuildConfig
 
 /**
  * @ClassName [Logger]
@@ -9,7 +10,7 @@ import android.util.Log
  * @Date 2019-08-09.
  * @Author xiaosw<xiaosw0802@163.com>.
  */
-object Logger {
+internal object Logger {
 
     /**
      * log single maximum output length.
@@ -30,7 +31,11 @@ object Logger {
         private set
     private var mLogLevel = LogLevel.DEBUG
 
-    fun init(logLevel: LogLevel, preTag: String = "xiaosw-") {
+    init {
+        init(if(BuildConfig.DEBUG) LogLevel.VERBOSE else LogLevel.NONE)
+    }
+
+    private fun init(logLevel: LogLevel, preTag: String = "xiaosw-permission") {
         mLogLevel = logLevel
         mPreTag = preTag
     }
