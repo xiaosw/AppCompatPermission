@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.os.Bundle
+import androidx.annotation.Keep
 import com.xiaosw.permission.internal.delegate.PermissionDelegate
 import com.xiaosw.permission.util.Logger
 import java.lang.ref.WeakReference
@@ -16,6 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean
  * @Date 2019-05-29.
  * @Author xiaosw<xiaosw0802@163.com>.
  */
+@Keep
 object AppCompatPermission : Application.ActivityLifecycleCallbacks {
 
     /** 默认权限请求码 */
@@ -32,7 +34,7 @@ object AppCompatPermission : Application.ActivityLifecycleCallbacks {
     internal var topActivity: Activity? = null
         get() = mCurrentActivityRef?.get()
 
-    fun init(context: Context) {
+    internal fun init(context: Context) {
         Logger.w("init: context = $context")
         if (isInitializer.get()) {
             Logger.w("init: App compat permission is initializer!")
