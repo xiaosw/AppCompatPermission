@@ -1,5 +1,7 @@
 package com.xiaosw.permission
 
+import androidx.annotation.Keep
+
 /**
  * @ClassName [OnPermissionListener]
  * @Description
@@ -7,6 +9,7 @@ package com.xiaosw.permission
  * @Date 2019-05-29.
  * @Author xiaosw<xiaosw0802@163.com>.
  */
+//@Keep
 interface OnPermissionListener {
 
     /**
