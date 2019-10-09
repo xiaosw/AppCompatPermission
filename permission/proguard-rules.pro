@@ -95,6 +95,11 @@
 -keep,allowobfuscation @interface androidx.annotation.Keep
 
 -keep @androidx.annotation.Keep class *
+-keep @androidx.annotation.Keep class *$DefaultImpls
+-keep @androidx.annotation.Keep class *$DefaultImpls {*;}
 -keepclassmembers class * {
     @androidx.annotation.Keep *;
 }
+
+-dontwarn com.xiaosw.permission.OnPermissionListener$DefaultImpls
+-keep class com.xiaosw.permission.OnPermissionListener$DefaultImpls {*;}

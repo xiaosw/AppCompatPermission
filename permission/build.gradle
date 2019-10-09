@@ -30,6 +30,12 @@ android {
     sourceSets.main {
         java.srcDirs += "src/main/kotlin"
     }
+
+    android.libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${project.name}_v${defaultConfig.versionName}_${variant.buildType.name}.aar"
+        }
+    }
 }
 
 dependencies {
