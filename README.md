@@ -49,6 +49,6 @@ AppCompatPermission.checkAndRequestPermission(reqeustCode, new OnPermissionListe
 ```xml
 <provider
     android:authorities="package.internal.provider.PermissionInitProvider"
-    android:name="com.xiaosw.permission.internal.provider.PermissionInitProvider"
+    android:name="com.xiaosw.permission.provider.PermissionInitProvider"
     tools:replace="android:authorities"/>
 ```

@@ -1,4 +1,4 @@
-package com.xiaosw.permission.internal.provider
+package com.xiaosw.permission.provider
 
 import android.content.ContentProvider
 import android.content.ContentValues
@@ -14,7 +14,7 @@ import com.xiaosw.permission.util.Logger
  * @Date 2019-05-30.
  * @Author xiaosw<xiaosw0802@163.com>.
  */
-internal class PermissionInitProvider : ContentProvider() {
+class PermissionInitProvider : ContentProvider() {
 
     override fun onCreate(): Boolean {
         Logger.d("onCreate: $context")

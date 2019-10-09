@@ -3,8 +3,9 @@
 
     <application>
         <provider
-            android:authorities="com.xiaosw.permission.internal.provider.PermissionInitProvider"
-            android:name=".internal.provider.PermissionInitProvider"/>
+            android:authorities="com.xiaosw.permission.provider.PermissionInitProvider"
+            android:name="com.xiaosw.permission.provider.PermissionInitProvider"
+            android:exported="false"/>
     </application>
 
 </manifest>
