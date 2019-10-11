@@ -1,7 +1,6 @@
 package com.xiaosw.permission.util
 
 import android.util.Log
-import androidx.annotation.Keep
 import com.xiaosw.permission.BuildConfig
 
 /**
@@ -11,7 +10,6 @@ import com.xiaosw.permission.BuildConfig
  * @Date 2019-08-09.
  * @Author xiaosw<xiaosw0802@163.com>.
  */
-@Keep
 internal object Logger {
 
     /**
